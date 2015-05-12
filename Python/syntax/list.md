@@ -71,7 +71,8 @@
 
 * 使用列表自带方法
 
-    列表有一些自带的方法支持高级操作
+    列表自带的方法支持很多高级操作
+
     |方法                           |功能                                                                                   |
     |:------------------------------|:--------------------------------------------------------------------------------------|
     |`append(object)`               |把`object`添加到列表的尾部                                                             |
@@ -79,10 +80,122 @@
     |`copy()`                       |返回该列表的浅拷贝                                                                     |
     |`count(value)`                 |计算`value`在这个列表出现的次数                                                        |
     |`extend(iterable)`             |把可迭代对象`iterable`合并到列表的尾部                                                 |
-    |`index(value, [start, [stop]])`|将索引范围为`[start, stop)`的第一个值为`value`的索引返回，不给后两个参数默认为整个列表 |
+    |`index(value, [start, [stop]])`|将索引范围为`[start:stop]`的第一个值为`value`的索引返回                                |
     |`insert(index, object)`        |将`object`插入到索引为`index`的元素的前面                                              |
     |`pop([index])`                 |删除并返回索引为`index`的元素，不提供参数则默认是最后一个元素                          |
     |`remove(value)`                |删除第一个值为`value`的元素                                                            |
     |`reverse()`                    |就地逆转列表的元素                                                                     |
     |`sort(key=None, reverse=False)`|就地稳定排序                                                                           |
 
+    示例：
+    1. `append(object)`
+
+        ```python
+        >>> name = ['Tony', 'Green', 'Alice', 'JZQT']
+        >>> name.append('Hello World!')
+        >>> name
+        ['Tony', 'Green', 'Alice', 'JZQT', 'Hello World!']
+        ```
+
+    2. `clear()`
+
+        ```python
+        >>> name = ['Tony', 'Green', 'Alice', 'JZQT']
+        >>> name.clear()
+        >>> name
+        []
+        ```
+
+    3. `copy()`
+
+        ```python
+        >>> name = ['Tony', 'Green', 'Alice', 'JZQT']
+        >>> name.copy()
+        ['Tony', 'Green', 'Alice', 'JZQT']
+        ```
+
+    4. `count(value)`
+
+        ```python
+        >>> name = ['Tony', 'Green', 'Alice', 'JZQT', 'JZQT']
+        >>> name.count('JZQT')
+        2
+        ```
+
+    5. `extend(iterable)`
+
+        ```python
+        >>> name = ['Tony', 'Green', 'Alice', 'JZQT']
+        >>> name.extend([1, 2, 3])
+        >>> name
+        ['Tony', 'Green', 'Alice', 'JZQT', 1, 2, 3]
+        ```
+
+    6. `index(value, [start, [stop]])`
+
+        ```python
+        >>> name = ['Tony', 'Green', 'JZQT', 'Alice', 'JZQT']
+        >>> name.index('JZQT')
+        2
+        >>> name.index('JZQT', 4)
+        4
+        >>> name.index('JZQT', 1, 5)
+        2
+        ```
+
+    7. `insert(index, object)`
+
+        ```python
+        >>> name = ['Tony', 'Green', 'JZQT', 'Alice']
+        >>> name.insert(1, 'Bob')
+        >>> name
+        ['Tony', 'Bob', 'Green', 'JZQT', 'Alice']
+        >>> name.insert(100, 'God')
+        >>> name
+        ['Tony', 'Bob', 'Green', 'JZQT', 'Alice', 'God']
+        >>> name.insert(-100, 'Oh')
+        >>> name
+        ['Oh', 'Tony', 'Bob', 'Green', 'JZQT', 'Alice', 'God']
+        ```
+
+    8. `pop([index])`
+
+        ```python
+        >>> name = ['Tony', 'Green', 'JZQT', 'Alice']
+        >>> name.pop()
+        'Alice'
+        >>> name
+        ['Tony', 'Green', 'JZQT']
+        >>> name.pop(0)
+        'Tony'
+        >>> name
+        ['Green', 'JZQT']
+        ```
+
+    9. `remove(value)`
+
+        ```python
+        >>> name = ['Tony', 'Green', 'JZQT', 'Alice', 'JZQT']
+        >>> name.remove('JZQT')
+        >>> name
+        ['Tony', 'Green', 'Alice', 'JZQT']
+        ```
+
+    10. `reverse()`
+
+        ```python
+        >>> name = ['Tony', 'Green', 'JZQT', 'Alice']
+        >>> name.reverse()
+        >>> name
+        ['Alice', 'JZQT', 'Green', 'Tony']
+        ```
+
+    11. `sort(key=None, reverse=False)`
+
+        ```python
+        >>> name = ['Tony', 'Green', 'JZQT', 'Alice']
+        >>> name.sort()
+        ['Alice', 'Green', 'JZQT', 'Tony']
+        >>> name.sort(reverse=True)
+        ['Tony', 'JZQT', 'Green', 'Alice']
+        ```
